@@ -15,8 +15,9 @@ import Crime from "../pages/Crime.js";
 import Animation from "../pages/Animation.js";
 import Adventure from "../pages/Adventure.js";
 import Fantasy from "../pages/Fantasy.js";
-import Superhero from "../pages/Superhero.js";
+import Family from "../pages/Family.js";
 import AdvancedSearch from "../pages/AdvancedSearch.js";
+
 
 
 
@@ -41,7 +42,7 @@ export default function Header () {
     <Route exact path="/ANIMATION" component =  {Animation} />
     <Route exact path="/ADVENTURE" component =  {Adventure} />
     <Route exact path="/FANTASY" component =  {Fantasy} />
-    <Route exact path="/SUPERHERO" component =  {Superhero} />
+    <Route exact path="/FAMILY" component =  {Family} />
     <Route exact path="/Advanced Search" component =  {AdvancedSearch} />
     </div>
     </Router>

@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import NoPoster from '../images/NoPoster.png';
 
 
-class Thriller extends Component {
+class Family extends Component {
   constructor() {
     super();
     this.state = { results: [] };
   }
 
   componentDidMount() {
-    fetch(`https://movies-api-siit.herokuapp.com/movies?take=100&Genre=Thriller`)
+    fetch(`https://movies-api-siit.herokuapp.com/movies?take=100&Genre=Family`)
       .then(Response => {
         return Response.json();
       })
@@ -19,11 +19,10 @@ class Thriller extends Component {
   }
 
   render() {
-
     return (
       
         <div className="container">
-          <h1>Thriller Page </h1>
+          <h1>Family Page </h1>
           {this.state.results.map((movie) => {      
             
             let moviePoster = NoPoster;
@@ -50,4 +49,4 @@ class Thriller extends Component {
   }
 }
 
-export default Thriller;
+export default Family;

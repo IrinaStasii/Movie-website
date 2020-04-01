@@ -1,6 +1,13 @@
+.navbar-brand > img {
+  height: 38px;
+  width: 200px;
+  float: left;
+}
 
-  .navbar-brand>img {
-    height: 38px;
-    width:200px;
-    float: left;
-  }
+.form-control {
+  margin: auto;
+}
+
+.btn {
+  margin: auto;
+}

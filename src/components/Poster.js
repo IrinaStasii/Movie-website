@@ -6,9 +6,9 @@ class Poster extends Component {
   state = {
     movies: [],
     currentMovieIndex: 0,
-   
+
   };
-   
+
 
   fetchData() {
     fetch('https://movies-api-siit.herokuapp.com/movies?take=20&Type=series')
@@ -21,7 +21,7 @@ class Poster extends Component {
         }
         this.setState({movies: movies});
       });
-    
+
   };
 
   componentDidMount() {
@@ -48,39 +48,43 @@ class Poster extends Component {
   };
 
   render() {
-     const {movies, currentMovieIndex} = this.state;
-     const currentMovie = movies[currentMovieIndex];
+    const {movies, currentMovieIndex} = this.state;
+    const currentMovie = movies[currentMovieIndex];
 
     return (
-      <div className="carousel">
-           {currentMovie ? (
-             <div className="carousel-inner d-flex justify-content-center">
-               <div className={`carousel-control-prev carousel-control-prev-icon ${currentMovieIndex === 0 ? "disabled" : ""}`}
-                   onClick={this.handlePreviousMovie} >
-                 </div>
-              
-               {/* <div class="carousel-caption d-none d-md-block">{currentMovie.title}</div> */}
-               <img className="rounded mx-auto d-block" src={currentMovie.poster} alt="poster"/>
-      
-                 <div className={`carousel-control-next carousel-control-next-icon ${currentMovieIndex === movies.length - 1 ? "disabled" : ""}`}
-                   onClick={this.handleNextMovie} >
-                 </div>
-             </div>
-            
-           ) : (
-           <p>Loading</p>
-           )}
+      <div className="carousel-background">
+        <div className="container">
+          {currentMovie ? (
+            <div className="carousel-inner d-flex justify-content-center">
+              <button
+                className={`my-auto carousel-control-prev carousel-control-prev-icon ${currentMovieIndex === 0 ? "disabled" : ""}`}
+                onClick={this.handlePreviousMovie}>
+              </button>
+
+              {/* <div class="carousel-caption d-none d-md-block">{currentMovie.title}</div> */}
+              <img className="rounded mx-auto d-block" src={currentMovie.poster} alt="poster"/>
+
+              <button
+                className={`my-auto carousel-control-next carousel-control-next-icon ${currentMovieIndex === movies.length - 1 ? "disabled" : ""}`}
+                onClick={this.handleNextMovie}>
+              </button>
+            </div>
+
+          ) : (
+            <p>Loading</p>
+          )}
+        </div>
       </div>
-     
     )
-           }}
-    
+  }
+}
 
- export default Poster;
 
- class Movie {
-   constructor(title, poster) {
-     this.title = title;
-     this.poster = poster;
-   }
- }
+export default Poster;
+
+class Movie {
+  constructor(title, poster) {
+    this.title = title;
+    this.poster = poster;
+  }
+}

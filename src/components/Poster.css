@@ -1,14 +1,15 @@
-.carousel{
-    background-color:#343a40;
+.carousel-background {
+    background-color: #343a40;
 }
 
-.carousel-inner img{
-  height:400px;
+.carousel-inner img {
+    height: 400px;
 }
+
 .carousel-control-prev-icon {
-    margin:auto;
-
+    border-style: none;
 }
-.carousel-control-next-icon{
-    margin:auto;
+
+.carousel-control-next-icon {
+    border-style: none;
 }
