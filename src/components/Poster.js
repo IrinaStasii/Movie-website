@@ -1,14 +1,11 @@
 import React, {Component} from 'react';
 import './Poster.css'
 
-
 class Poster extends Component {
   state = {
     movies: [],
     currentMovieIndex: 0,
-
   };
-
 
   fetchData() {
     fetch('https://movies-api-siit.herokuapp.com/movies?take=20&Type=series')
@@ -21,7 +18,6 @@ class Poster extends Component {
         }
         this.setState({movies: movies});
       });
-
   };
 
   componentDidMount() {
@@ -50,7 +46,6 @@ class Poster extends Component {
   render() {
     const {movies, currentMovieIndex} = this.state;
     const currentMovie = movies[currentMovieIndex];
-
     return (
       <div className="carousel-background">
         <div className="container">
@@ -60,16 +55,12 @@ class Poster extends Component {
                 className={`my-auto carousel-control-prev carousel-control-prev-icon ${currentMovieIndex === 0 ? "disabled" : ""}`}
                 onClick={this.handlePreviousMovie}>
               </button>
-
-              {/* <div class="carousel-caption d-none d-md-block">{currentMovie.title}</div> */}
               <img className="rounded mx-auto d-block" src={currentMovie.poster} alt="poster"/>
-
               <button
                 className={`my-auto carousel-control-next carousel-control-next-icon ${currentMovieIndex === movies.length - 1 ? "disabled" : ""}`}
                 onClick={this.handleNextMovie}>
               </button>
             </div>
-
           ) : (
             <p>Loading</p>
           )}
@@ -78,7 +69,6 @@ class Poster extends Component {
     )
   }
 }
-
 
 export default Poster;
 

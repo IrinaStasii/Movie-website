@@ -18,35 +18,30 @@ import Fantasy from "../pages/Fantasy.js";
 import Family from "../pages/Family.js";
 import AdvancedSearch from "../pages/AdvancedSearch.js";
 
-
-
-
-
-
-export default function Header () {
+export default function Header() {
   return (
     <Router>
-    <div className="Header">
-    <Navbar />
-    <Route exact path="/" component = {Home} /> 
-    <Route exact path="/Home" component = {Home} /> 
-    <Route exact path="/ACTION" component =  {Action} />
-    <Route exact path="/COMEDY" component =  {Comedy} />
-    <Route exact path="/SCI-FI" component =  {Scifi} />
-    <Route exact path="/HORROR" component =  {Horror} />
-    <Route exact path="/ROMANCE" component =  {Romance} />
-    <Route exact path="/THRILLER" component =  {Thriller} />
-    <Route exact path="/DRAMA" component =  {Drama} />
-    <Route exact path="/MYSTERY" component =  {Mystery} />
-    <Route exact path="/CRIME" component =  {Crime} />
-    <Route exact path="/ANIMATION" component =  {Animation} />
-    <Route exact path="/ADVENTURE" component =  {Adventure} />
-    <Route exact path="/FANTASY" component =  {Fantasy} />
-    <Route exact path="/FAMILY" component =  {Family} />
-    <Route exact path="/Advanced Search" component =  {AdvancedSearch} />
-    </div>
+      <div className="Header">
+        <Navbar/>
+        <Route exact path="/" component={Home}/>
+        <Route exact path="/Home" component={Home}/>
+        <Route exact path="/ACTION" component={Action}/>
+        <Route exact path="/COMEDY" component={Comedy}/>
+        <Route exact path="/SCI-FI" component={Scifi}/>
+        <Route exact path="/HORROR" component={Horror}/>
+        <Route exact path="/ROMANCE" component={Romance}/>
+        <Route exact path="/THRILLER" component={Thriller}/>
+        <Route exact path="/DRAMA" component={Drama}/>
+        <Route exact path="/MYSTERY" component={Mystery}/>
+        <Route exact path="/CRIME" component={Crime}/>
+        <Route exact path="/ANIMATION" component={Animation}/>
+        <Route exact path="/ADVENTURE" component={Adventure}/>
+        <Route exact path="/FANTASY" component={Fantasy}/>
+        <Route exact path="/FAMILY" component={Family}/>
+        <Route exact path="/Advanced Search" component={AdvancedSearch}/>
+      </div>
     </Router>
-    
+
   );
 }
 
