@@ -7,16 +7,8 @@ import MovieDetails from "../components/MovieDetails";
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      poster: false
-    };
+    this.state = {};
   }
-
-  currentMovieCallback = (movie) => {
-    this.setState({currentMovie: movie}, () => {
-      this.triggerIsPosterClickedState();
-    });
-  };
 
   render() {
     return (
@@ -24,29 +16,11 @@ class Home extends Component {
         <div className="container">
           <h2> Welcome to HOME Page</h2>
         </div>
-        {!this.state.poster
-          ? (<SinglePosterCarousel handleClickPoster={this.triggerIsPosterClickedState}
-                                   parentCallback={this.currentMovieCallback}/>)
-          : (<MovieDetails handleClickBack={this.triggerBackToPosterClickedState}
-                           currentMovie={this.state.currentMovie}/>)
-        }
+        <SinglePosterCarousel handleClickPoster={this.triggerIsPosterClickedState}
+                              parentCallback={this.currentMovieCallback}/>
         <MultiPosterCarousel/>
       </div>
     );
-  }
-
-  triggerIsPosterClickedState = () => {
-    this.setState({
-      ...this.state,
-      poster: true
-    })
-  };
-
-  triggerBackToPosterClickedState = () => {
-    this.setState({
-      ...this.state,
-      poster: false
-    })
   }
 }
 

@@ -17,6 +17,7 @@ import Adventure from "../pages/Adventure.js";
 import Fantasy from "../pages/Fantasy.js";
 import Family from "../pages/Family.js";
 import AdvancedSearch from "../pages/AdvancedSearch.js";
+import MovieDetails from "./MovieDetails";
 
 export default function Header() {
   return (
@@ -25,6 +26,7 @@ export default function Header() {
         <Navbar/>
         <Route exact path="/" component={Home}/>
         <Route exact path="/Home" component={Home}/>
+        <Route exact path ="/MovieDetails" component ={MovieDetails}/>
         <Route exact path="/ACTION" component={Action}/>
         <Route exact path="/COMEDY" component={Comedy}/>
         <Route exact path="/SCI-FI" component={Scifi}/>
