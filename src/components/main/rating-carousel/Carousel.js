@@ -1,71 +1,49 @@
 import React, { Component } from "react";
 import './Carousel.css';
 
-
-const url = "https://movies-api-siit.herokuapp.com/movies?take=96"
+const url = "https://movies-api-siit.herokuapp.com/movies?take=100000";
 
 class Carousel extends Component {
 
-    constructor() {
-        super();
-        this.state = {
-            results: [],
-            currentMovieIndex: 0
-        }
+  constructor() {
+    super();
+    this.state = {
+      results: [],
+      currentMovieIndex: 0
     }
+  }
 
+  componentDidMount() {
+    fetch(url)
+      .then(results => {
+        return results.json();
+      }).then(data => {
+      this.setState({results: data.results})
+    })
+  }
 
-    componentDidMount() {
-
-
-
-        fetch(url)
-            .then(results => {
-                return results.json();
-            }).then(data => {
-
-                this.setState({ results: data.results })
-
-            })
-
+  handleRight = () => {
+    const {currentMovieIndex, results} = this.state;
+    if (currentMovieIndex < results.length - 1) {
+      this.setState({currentMovieIndex: currentMovieIndex + 6})
     }
-
-
-    handleRight = () => {
-
-        const { currentMovieIndex, results } = this.state;
-
-        if (currentMovieIndex < results.length - 1) {
-            this.setState({ currentMovieIndex: currentMovieIndex + 6 })
-
-        }
-
-    }
-    handleLeft = () => {
+  };
+  handleLeft = () => {
         const { currentMovieIndex } = this.state;
         if (currentMovieIndex > 0) {
             this.setState({ currentMovieIndex: currentMovieIndex - 6 })
         }
-    }
-
-
+    };
 
     render() {
-
         const { currentMovieIndex, results } = this.state;
-
         return (
-
-
-
             <div className="card-deck" >
-
                 <div className="arrows" role="presentation">
                     <div className="arrow-wrap" role="presentation"><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" onClick={this.handleLeft} className={currentMovieIndex === 0 ? "disabled" : "arrow"} viewBox="0 0 24 24" fill="currentColor" role="presentation"><path d="M18.378 23.369c.398-.402.622-.947.622-1.516 0-.568-.224-1.113-.622-1.515l-8.249-8.34 8.25-8.34a2.16 2.16 0 0 0 .548-2.07A2.132 2.132 0 0 0 17.428.073a2.104 2.104 0 0 0-2.048.555l-9.758 9.866A2.153 2.153 0 0 0 5 12.009c0 .568.224 1.114.622 1.515l9.758 9.866c.808.817 2.17.817 2.998-.021z"></path></svg></div>
                 </div>
                 {this.state.results.sort(function (a, b) { return b.imdbRating - a.imdbRating }).slice(currentMovieIndex, currentMovieIndex + 6).map((res) => {
                     return (
-
                         <div className="card">
                             <img src={res.Poster} className="card-img-top" alt="logo" />
                             <div className="card-body">
@@ -76,8 +54,6 @@ class Carousel extends Component {
                                     <p className="card-text">{res.imdbRating}</p>
                                 </div>
                                 <h5 className="card-title">{res.Title}</h5>
-
-
                             </div>
                         </div>
 
@@ -88,20 +64,11 @@ class Carousel extends Component {
                     <div className="arrow-wrap" role="presentation"><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" onClick={this.handleRight} className={currentMovieIndex === results.length - 6 ? "disabled" : "arrow"} viewBox="0 0 24 24" fill="currentColor" role="presentation"><path d="M5.622.631A2.153 2.153 0 0 0 5 2.147c0 .568.224 1.113.622 1.515l8.249 8.34-8.25 8.34a2.16 2.16 0 0 0-.548 2.07c.196.74.768 1.317 1.499 1.515a2.104 2.104 0 0 0 2.048-.555l9.758-9.866a2.153 2.153 0 0 0 0-3.03L8.62.61C7.812-.207 6.45-.207 5.622.63z"></path></svg></div>
                 </div>
             </div>
-
-
         )
     }
-
-
 }
 
 export default Carousel;
 
 
-{/* <div className="info-keeper" key={res.results}>
-<img src={res.Poster} alt="logo" />
-<p>{res.Title}</p>
-<p>{res.imdbRating}</p>
 
-</div> */}

@@ -1,13 +1,12 @@
 import React, { Component } from "react";
-import Form from "../components/advanced-search-form/AdvancedSearch";
+
 
 class AdvancedSearch extends Component {
   render() {
-    return (
+    return(
       <div>
         <div className="container">
-          <h2> Welcome to Advanced Search Page</h2>
-          <Form />
+        <h2> Welcome to Advanced Search Page</h2>
         </div>
       </div>
     );
