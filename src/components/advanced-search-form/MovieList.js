@@ -14,7 +14,7 @@ class MovieList extends Component {
 
     componentDidMount() {
         console.log(this.props);
-        let url = "https://movies-api-siit.herokuapp.com/movies?"
+        let url = "https://movies-api-siit.herokuapp.com/movies?";
         let minutesMin = this.props.location.state.minutesMin;
         let country = this.props.location.state.country;
         let language = this.props.location.state.language;
@@ -46,7 +46,7 @@ class MovieList extends Component {
     render() {
         const details = this.props;
         console.log(details);
-        console.log(this.state.results)
+        console.log(this.state.results);
 
         return (
 

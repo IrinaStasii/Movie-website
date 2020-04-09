@@ -1,7 +1,7 @@
 import React from "react";
 
 export function LanguageSelector(props) {
-    let languages = ["USA", "English", "Mandarin", "French", "Spanish", "Japanese", "Portuguese", "Thai", "Esperanto", "Italian", "German", "Romanian", "Filipino", "Tagalog"]
+    let languages = ["USA", "English", "Mandarin", "French", "Spanish", "Japanese", "Portuguese", "Thai", "Esperanto", "Italian", "German", "Romanian", "Filipino", "Tagalog"];
     return (
         <div className="clause">
             <div className="label">
@@ -12,8 +12,6 @@ export function LanguageSelector(props) {
                     {languages.map((language, index) => (
                         <option key={index} value={language} onClick={() => props.onClick(language)}>{language}</option>
                     ))}
-
-
                 </select>
             </div>
         </div>
