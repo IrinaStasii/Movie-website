@@ -1,7 +1,6 @@
-import React, {Component, useReducer} from "react";
+import React, {Component, } from "react";
 import SinglePosterCarousel from "../components/Poster";
 import MultiPosterCarousel from "../components/main/rating-carousel/Carousel";
-import MovieDetails from "../components/MovieDetails";
 
 
 class Home extends Component {

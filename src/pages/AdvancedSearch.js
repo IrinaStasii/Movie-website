@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Form from "../components/advanced-search-form/AdvancedSearch";
+import Form from "../components/advanced-search-form/AdvancedSearch"
 
 class AdvancedSearch extends Component {
   render() {
