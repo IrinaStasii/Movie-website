@@ -7,7 +7,6 @@ import { CountrySelector } from "./components/CountrySelector";
 import { LanguageSelector } from "./components/LanguageSelector";
 import { SubmitButton } from "./components/SubmitButton";
 import { Link } from "react-router-dom";
-import { MovieList } from "./MovieList";
 
 class Form extends Component {
   state = {
@@ -36,11 +35,13 @@ class Form extends Component {
   handleClickCountry = (country) => {
     this.setState({ country })
   }
-
+  handleClickLanguage = (language) => {
+    this.setState({ language })
+  }
 
 
   render() {
-    console.log(this.state);
+    // console.log(this.state);
 
     return (
       <form className="form-wraper">
@@ -67,77 +68,79 @@ class Form extends Component {
             </div>
             <div className="inputs">
               <table>
-                <tr>
-                  <td>
-                    <input id="action" type="checkbox"></input>
-                    <label>Action</label>
-                  </td>
-                  <td>
-                    <input id="adventure" type="checkbox"></input>
-                    <label>Adventure</label>
-                  </td>
-                  <td>
-                    <input id="animation" type="checkbox"></input>
-                    <label>Animation</label>
-                  </td>
-                  <td>
-                    <input id="comedy" type="checkbox"></input>
-                    <label>Comedy</label>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <input id="crime" type="checkbox"></input>
-                    <label>Crime</label>
-                  </td>
-                  <td>
-                    <input id="drama" type="checkbox"></input>
-                    <label>Drama</label>
-                  </td>
-                  <td>
-                    <input id="family" type="checkbox"></input>
-                    <label>Family</label>
-                  </td>
-                  <td>
-                    <input id="fantasy" type="checkbox"></input>
-                    <label>Fantasy</label>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <input id="horror" type="checkbox"></input>
-                    <label>Horror</label>
-                  </td>
-                  <td>
-                    <input id="mistery" type="checkbox"></input>
-                    <label>Mistery</label>
-                  </td>
-                  <td>
-                    <input id="romance" type="checkbox"></input>
-                    <label>Romance</label>
-                  </td>
-                  <td>
-                    <input id="sci-fi" type="checkbox"></input>
-                    <label>SCI-FI</label>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <input id="superhero" type="checkbox"></input>
-                    <label>Superhero</label>
-                  </td>
-                  <td>
-                    <input id="thriller" type="checkbox"></input>
-                    <label>Thriller</label>
-                  </td>
-                </tr>
+                <tbody>
+                  <tr>
+                    <td>
+                      <input id="action" type="checkbox"></input>
+                      <label>Action</label>
+                    </td>
+                    <td>
+                      <input id="adventure" type="checkbox"></input>
+                      <label>Adventure</label>
+                    </td>
+                    <td>
+                      <input id="animation" type="checkbox"></input>
+                      <label>Animation</label>
+                    </td>
+                    <td>
+                      <input id="comedy" type="checkbox"></input>
+                      <label>Comedy</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input id="crime" type="checkbox"></input>
+                      <label>Crime</label>
+                    </td>
+                    <td>
+                      <input id="drama" type="checkbox"></input>
+                      <label>Drama</label>
+                    </td>
+                    <td>
+                      <input id="family" type="checkbox"></input>
+                      <label>Family</label>
+                    </td>
+                    <td>
+                      <input id="fantasy" type="checkbox"></input>
+                      <label>Fantasy</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input id="horror" type="checkbox"></input>
+                      <label>Horror</label>
+                    </td>
+                    <td>
+                      <input id="mistery" type="checkbox"></input>
+                      <label>Mistery</label>
+                    </td>
+                    <td>
+                      <input id="romance" type="checkbox"></input>
+                      <label>Romance</label>
+                    </td>
+                    <td>
+                      <input id="sci-fi" type="checkbox"></input>
+                      <label>SCI-FI</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input id="superhero" type="checkbox"></input>
+                      <label>Superhero</label>
+                    </td>
+                    <td>
+                      <input id="thriller" type="checkbox"></input>
+                      <label>Thriller</label>
+                    </td>
+                  </tr>
+                </tbody>
               </table>
             </div>
           </div>
 
           <RuntimeSelector onClick={this.handleClickRuntime} />
           <CountrySelector onClick={this.handleClickCountry} />
-          <LanguageSelector />
+          <LanguageSelector onClick={this.handleClickLanguage} />
           <Link to={{
             pathname: "/MovieList",
             state: {

@@ -10,9 +10,13 @@ export function generateYears() {
 
 export function generateMinutes() {
   const minutesList = [];
+
   for (let minutes = 0; minutes < 255; minutes += 15) {
     minutesList.push(minutes);
 
   }
   return minutesList;
+
+
 }
+

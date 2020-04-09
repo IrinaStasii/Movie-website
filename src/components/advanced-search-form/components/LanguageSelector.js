@@ -1,6 +1,7 @@
 import React from "react";
 
 export function LanguageSelector(props) {
+    let languages = ["USA", "English", "Mandarin", "French", "Spanish", "Japanese", "Portuguese", "Thai", "Esperanto", "Italian", "German", "Romanian", "Filipino", "Tagalog"]
     return (
         <div className="clause">
             <div className="label">
@@ -8,20 +9,11 @@ export function LanguageSelector(props) {
             </div>
             <div className="inputs">
                 <select multiple name="countries" className="countries" size="7">
-                    <option>USA</option>
-                    <option>English</option>
-                    <option>Mandarin</option>
-                    <option>French</option>
-                    <option>Spanish</option>
-                    <option>Japanese</option>
-                    <option>Portuguese</option>
-                    <option>Thai</option>
-                    <option>Esperanto</option>
-                    <option>Italian</option>
-                    <option>German</option>
-                    <option>Romanian</option>
-                    <option>Filipino</option>
-                    <option>Tagalog</option>
+                    {languages.map((language, index) => (
+                        <option key={index} value={language} onClick={() => props.onClick(language)}>{language}</option>
+                    ))}
+
+
                 </select>
             </div>
         </div>

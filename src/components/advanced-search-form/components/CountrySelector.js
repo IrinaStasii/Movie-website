@@ -2,7 +2,7 @@ import React from "react";
 
 export function CountrySelector(props) {
 
-    let country = "USA"
+    let countries = ["USA", "UK", "Denmark", "Japan", "South Korea", "Canada", "Romania", "Philippines", "France"];
     return (
 
         <div className="clause">
@@ -10,16 +10,12 @@ export function CountrySelector(props) {
                 <h3>Country</h3>
             </div>
             <div className="inputs">
-                <select multiple name="countries" className="countries" size="7">
-                    <option value="USA" onClick={() => props.onClick(country)}>{country}</option>
-                    <option value="UK">UK</option>
-                    <option value="Denmark">Denmark</option>
-                    <option value="Japan">Japan</option>
-                    <option value="South Korea">South Korea</option>
-                    <option value="Canada">Canada</option>
-                    <option value="Romania">Romania</option>
-                    <option value="Philippines">Philippines</option>
-                    <option value="France">France</option>
+                <select multiple name="countries" className="countries" size="7" >
+                    {countries.map((country, index) => (
+                        <option key={index} value={country} onClick={() => props.onClick(country)}>{country}</option>
+                    )
+                    )}
+
                 </select>
             </div>
         </div>
