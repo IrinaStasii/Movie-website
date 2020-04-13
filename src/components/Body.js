@@ -15,6 +15,8 @@ import Fantasy from "../pages/Fantasy";
 import Family from "../pages/Family";
 import AdvancedSearch from "../pages/AdvancedSearch";
 import "./Body.css";
+import MovieList from "./advanced-search-form/MovieList";
+import Login from "../pages/Login";
 
 export function Body() {
   return (
@@ -35,6 +37,8 @@ export function Body() {
       <Route exact path="/FANTASY" component={Fantasy} />
       <Route exact path="/FAMILY" component={Family} />
       <Route exact path="/Advanced Search" component={AdvancedSearch} />
+      <Route exact path="/MovieList" component={MovieList} />
+      <Route exact path="/Register-Login" component={Login} />
     </div>
   );
 }
