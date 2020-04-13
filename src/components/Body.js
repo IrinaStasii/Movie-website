@@ -16,6 +16,7 @@ import Family from "../pages/Family";
 import AdvancedSearch from "../pages/AdvancedSearch";
 import "./Body.css";
 import MovieList from "./advanced-search-form/MovieList";
+import MovieDetails from "./MovieDetails";
 import Login from "../pages/Login";
 
 export function Body() {
@@ -38,6 +39,7 @@ export function Body() {
       <Route exact path="/FAMILY" component={Family} />
       <Route exact path="/Advanced Search" component={AdvancedSearch} />
       <Route exact path="/MovieList" component={MovieList} />
+      <Route exact path="/MovieDetails" component={MovieDetails}/>
       <Route exact path="/Register-Login" component={Login} />
     </div>
   );

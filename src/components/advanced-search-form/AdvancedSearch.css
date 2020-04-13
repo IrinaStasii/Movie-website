@@ -13,4 +13,10 @@ color:#A58500;
 
 input[type=number]{
     width: 80px;
-} 
+}
+.box {
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
