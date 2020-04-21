@@ -22,7 +22,7 @@ body{
     display: none;
 }
 
-img{
+.card img{
     height:200px;
 }
 

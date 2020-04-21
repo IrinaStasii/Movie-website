@@ -71,7 +71,7 @@ class MovieInfo extends Component {
                         key={movie._id}
                     >
                         <div className="row">
-                            <div className="col-md-3">
+                            <div className="col-md-3" className="poster-container">
                                 <img src={moviePoster} className="card-image" alt="poster"/>
                             </div>
 

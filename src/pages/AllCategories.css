@@ -1,74 +1,90 @@
 #card-body-movie-list {
-    color: white;
-    padding: 20px 5px 10px 0px;  
-    background-color: #343a40
+  color: white;
+  padding: 20px 5px 10px 0px;
 }
 
 .movie-container {
-background-color: #343a40;
-flex: 1;
-overflow: auto;
-
+  background-color: #343a40;
+  flex: 1;
+  overflow: auto;
 }
 
 .card-image {
-    max-width: 250px;
-    margin: 20px 10px 10px 0px;
-    border:1px solid white;
+  margin: 20px 10px 10px 10px;
+  border: 1px solid white;
 }
 
-.row{
-    margin-left: 10px;
+.poster-container img{
+max-height: 400px;
+max-width: 280px;
+}
+
+.row {
+  margin-left: 10px;
 }
 .card-title-movie-list {
-    margin-left: 20px;
+  margin-left: 20px;
 }
-.movie-details{
-    margin-left: 10px;
+.movie-details {
+  margin-left: 10px;
 }
 
- #buttons {
-    padding: 20px 10px 10px 0px;
-} 
+#buttons {
+  padding: 20px 10px 10px 10px;
+}
 
 .container-fluid {
-    background-color: #343a40;
+  background-color: #343a40;
 }
 
 #movie-info {
-    color: white;
-    padding: 23px 10px 10px 10px;
+  color: white;
+  padding: 23px 10px 10px 10px;
 }
+
 .rating-img {
-    height: 20px;
-    width: 20px;
-    padding-left: 5px;
-    padding-bottom: 5px;
+  height: 20px;
+  width: 20px;
+  padding-left: 5px;
+  padding-bottom: 5px;
 }
-@media (max-width: 1270px)  {
-    .card-image {
-        width: 100%;
-    }
-    .card-text{
-        font-size: smaller;
-    }
+@media (max-width: 1270px) {
+  .card-image img{
+    max-height: 300px;
+    max-width: 180px;
+  }
+  .card-text {
+    font-size: smaller;
+  }
+ 
 }
 
 .pagination {
-    padding-top: 40px;
-    padding-bottom: 20px;
-    margin: 0 auto;
-    width: 50%
-    
-  
+  padding-top: 40px;
+  padding-bottom: 20px;
+  margin: 0 auto;
+  justify-content: center;
 }
 
-   
+.pagination ul{
+    text-decoration: none;
+    text-decoration-color: black;
+}
 
 .page-item.active .page-link {
-    background-color: #343a40;
+  background-color: #343a40;
 }
 
 .movie-container {
-  margin:0;
+  margin: 0;
+}
+
+.page-link{
+    color:black !important;
+    background-color: white !important;
+}
+.page-item.active .page-link{
+    background-color:rgb(242, 101, 34) !important;
+    border-color: grey !important;
+    color: black !important;
 }
