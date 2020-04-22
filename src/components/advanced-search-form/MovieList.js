@@ -25,7 +25,7 @@ class MovieList extends Component {
       url = `${url}&Genre=${genre}`
     }
     if (country) {
-      url = url + "&Country=" + country
+      url = url + "&Country=" + country.toString()
     }
     if (language) {
       url = url + "&Language=" + language

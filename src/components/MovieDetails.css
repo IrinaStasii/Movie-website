@@ -1,4 +1,16 @@
-.btn{
-    margin-right: 0;
-    margin-left: 0;
+/*.btn{*/
+/*    margin-right: 0;*/
+/*    margin-left: 0;*/
+/*}*/
+.container-fluid{
+    color:white;
+background-color: #343a40;
+}
+.col-sm img {
+    width:200px;
+    height:300px;
+
+}
+span{
+    padding-left: 8px;
 }

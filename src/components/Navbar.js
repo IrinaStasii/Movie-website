@@ -9,7 +9,7 @@ import "./Navbar.css";
 class Navbar extends Component {
   render() {
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow p-3 ">
         <div className="container">
           <Link className="navbar-brand" to="/Home">
             <img src={Logo} alt="Movie Website" />
