@@ -1,4 +1,7 @@
-import React, {Component} from "react";
+
+import React, { Component } from "react";
+import NoPoster from "../../images/NoPoster.png";
+
 
 class MovieList extends Component {
   constructor() {
@@ -7,6 +10,7 @@ class MovieList extends Component {
       results: [],
       currentMovieIndex: 0
     }
+
   }
 
   componentDidMount() {
@@ -15,6 +19,7 @@ class MovieList extends Component {
     let title = this.props.location.state.title;
     let genre = this.props.location.state.genre;
     let minutesMin = this.props.location.state.minutesMin;
+    let minutesMax = this.props.location.state.minutesMax;
     let country = this.props.location.state.country;
     let language = this.props.location.state.language;
     if(title)
@@ -24,15 +29,26 @@ class MovieList extends Component {
     if (genre) {
       url = `${url}&Genre=${genre}`
     }
-    if (country) {
-      url = url + "&Country=" + country.toString()
+
+   if (country.length > 0) {
+            url = url + "Country=";
+            for (let i = 0; i < country.length; i++) {
+
+                url = url + country[i] + ", ";
+
+            }
+            url = url.slice(0, -2);
+     }
+
+    if (language.length > 0) {
+            url = url + "&Language="
+            for (let i = 0; i < language.length; i++) {
+
+                url = url + language[i] + ", ";
+
+            }
+            url = url.slice(0, -2);
     }
-    if (language) {
-      url = url + "&Language=" + language
-    }
-    // if (minutesMin) {
-    //     url = url + "Runtime=" + minutesMin
-    // }
     console.log(url);
 
 
@@ -41,7 +57,7 @@ class MovieList extends Component {
     }).then(movie => {
       this.setState({results: movie.results})
     })
-  }
+ }
 
   render() {
     const details = this.props;

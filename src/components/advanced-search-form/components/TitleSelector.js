@@ -9,7 +9,7 @@ export function TitleSelector (props){
             <h3>Title</h3>
         </div>
         <div className="inputs">
-           <input  placeholder="e.g. The Godfather" type="text" size="75" onChange={(event) => props.onChange(event.target.value)}/>
+           <input  className="form-control form-control-lg" placeholder="e.g. The Godfather" type="text" size="75" onChange={(event) => props.onChange(event.target.value)}/>
         </div>
       </div>
     </div>
