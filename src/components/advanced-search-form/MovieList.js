@@ -15,7 +15,7 @@ class MovieList extends Component {
 
   componentDidMount() {
     console.log(this.props);
-    let url = "https://movies-api-siit.herokuapp.com/movies?";
+    let url = "https://movies-app-siit.herokuapp.com/movies?";
     let title = this.props.location.state.title;
     let genre = this.props.location.state.genre;
     let minutesMin = this.props.location.state.minutesMin;
@@ -64,7 +64,7 @@ class MovieList extends Component {
     console.log(details);
     console.log(this.state.results);
     return (
-      <div className="movie-list-container">
+      <div className="movie-list-container bg-light">
         <h1>Here are your search results </h1>
         {this.state.results.map((movie) => {
 

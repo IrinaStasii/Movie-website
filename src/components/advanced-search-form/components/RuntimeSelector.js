@@ -11,7 +11,7 @@ export function RuntimeSelector(props) {
         <select
           name="runtime-min"
           id="runtime-min"
-          className="minutes"
+          className="minutes mr-2"
           onChange={(event) =>
             props.onChange(event.currentTarget.value, "minutesMin")
           }
@@ -30,6 +30,7 @@ export function RuntimeSelector(props) {
         <select
           id="runtime-max"
           name="runtime-max"
+          className= "ml-2"
           onChange={(event) =>
             props.onChange(event.currentTarget.value, "minutesMax")
           }

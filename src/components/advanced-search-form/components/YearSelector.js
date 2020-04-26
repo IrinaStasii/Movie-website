@@ -1,6 +1,6 @@
 import React from "react";
 import { generateYears } from "../AdvancedSearchUtils";
-
+import "../components/Years.css";
 export function YearSelector(props) {
   return (
     <div className="clause">
@@ -8,7 +8,7 @@ export function YearSelector(props) {
         <h3>Year</h3>
       </div>
       <div className="inputs">
-        <select name="years" className="years" size="7">
+        <select name="years" className="years w-50 " size="7">
           {generateYears().map((year, index) => (
             <option key={index} onClick={() => props.onClick(year)}>
               {year}

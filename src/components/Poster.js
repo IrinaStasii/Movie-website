@@ -9,7 +9,7 @@ class Poster extends Component {
   };
 
   fetchData() {
-    fetch('https://movies-api-siit.herokuapp.com/movies?take=20&Type=series')
+    fetch('https://movies-app-siit.herokuapp.com/movies?take=20&Type=series')
       .then(response => response.json())
       .then(data => {
         console.log(data.results);

@@ -25,23 +25,23 @@ class GenresSelector extends Component {
       "Thriller"];
     const {checked} = this.state;
     const checkedCount = Object.keys(checked).filter(key => checked[key]).length;
-    const disabled = checkedCount > 0;
+    // const disabled = checkedCount > 0;
 
     return (
       <div>
-        <div className="label">
+        <div className="label mt-4 mb-4">
           <h3>Genres</h3>
         </div>
-        <div className="box">
+        <div className="box ">
           {genres.map((genre, index) => (
-            <label key={index}>
+            <label className="col-md-3" key={index}>
               <input
                 key={index}
                 onChange={() => this.onSelectedChange(genre, index)}
                 type="checkbox"
                 checked={checked[index] || false}
-                disabled={!checked[index] && disabled}
-                style={!checked[index] && disabled ? {"opacity": "0.5"} : {"opacity": "1"}}
+                // disabled={!checked[index] && disabled}
+                // style={!checked[index] && disabled ? {"opacity": "0.5"} : {"opacity": "1"}}
               />
               <span>{genre}</span>
             </label>

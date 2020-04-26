@@ -10,7 +10,7 @@ export function LanguageSelector(props) {
                 <h3>Languages</h3>
             </div>
             <div className="inputs">
-                <select multiple name="language" className="language" size="7" onChange={(event) =>
+                <select multiple name="language" className="language w-50" size="7" onChange={(event) =>
                     props.onChange(event.currentTarget.value)
                 }>
                     {languages.map((language, index) => (

@@ -21,7 +21,7 @@ class Form extends Component {
   };
 
   componentDidMount() {
-    console.log("search-form-mounteed");
+    console.log("search-form-mounted");
   }
 
   handleClickTitle = (title) => {
@@ -79,15 +79,28 @@ class Form extends Component {
     console.log(this.state);
 
     return (
-      <form className="form-wraper">
-        <div className="main">
-          <p>This is the form for an advanced search</p>
+      <form className="form-wrapper ">
+        {/*<div className="main ">*/}
+          {/*<p>This is the form for an advanced search</p>*/}
           <TitleSelector onChange={this.handleClickTitle} />
-          <YearSelector onClick={this.handleClickYear} />
           <GenresSelector handleGenre={this.handleClickGenre.bind(this)} />
-          <RuntimeSelector onClick={this.handleClickRuntime} />
-          <CountrySelector onChange={this.handleClickCountry} />
-          <LanguageSelector onChange={this.handleClickLanguage} />
+
+          <div className="row mt-4 mb-4 ">
+            <div className="col-sm-6 col-lg-3 pb-3  ">
+            <YearSelector onClick={this.handleClickYear} />
+            </div>
+            <div className="col-sm-6 col-lg-3 pb-3 ">
+            <CountrySelector onChange={this.handleClickCountry} />
+            </div>
+            <div className="col-sm-6 col-lg-3 pb-3 ">
+            <LanguageSelector onChange={this.handleClickLanguage} />
+            </div>
+            <div className="col-sm-6 col-lg-3 pb-3 ">
+            <RuntimeSelector onClick={this.handleClickRuntime} />
+            </div>
+          </div>
+
+
           <Link to={{
             pathname: "/MovieList",
             state: {
@@ -103,7 +116,7 @@ class Form extends Component {
             <SubmitButton onClick={this.handleSubmit} />
 
           </Link>
-        </div>
+        {/*</div>*/}
       </form>
     );
   }
