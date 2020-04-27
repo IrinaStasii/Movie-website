@@ -30,7 +30,7 @@ body{
     font-size: medium;
     color: white;
     margin-left: 5px;
-   
+
 }
 .card-body{
     height:150px;
@@ -63,7 +63,7 @@ h5:hover{
 .rating{
     display: flex;
     align-items: center;
-    
+
 }
 
 .star{

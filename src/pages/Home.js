@@ -12,11 +12,14 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <div className="container">
-          <h2> Welcome to HOME Page</h2>
+        <div className="container text-muted ">
+          <h2 >Best voted series</h2>
         </div>
         <SinglePosterCarousel handleClickPoster={this.triggerIsPosterClickedState}
                               parentCallback={this.currentMovieCallback}/>
+        <div className="container text-muted">
+          <h2>Most rated movies</h2>
+        </div>
         <MultiPosterCarousel/>
       </div>
     );

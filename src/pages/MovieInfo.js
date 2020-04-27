@@ -25,7 +25,7 @@ class MovieInfo extends Component {
         
         const skip = (pageNumber-1)*moviesPerPage;
 
-        fetch(`https://movies-api-siit.herokuapp.com/movies?&Genre=${genre}&take=${moviesPerPage}&skip=${skip}`)
+        fetch(`https://movies-app-siit.herokuapp.com/movies?&Genre=${genre}&take=${moviesPerPage}&skip=${skip}`)
         .then(Response => {
           return Response.json();
         })

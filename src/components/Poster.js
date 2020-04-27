@@ -47,36 +47,46 @@ class Poster extends Component {
   render() {
     const {movies, currentMovieIndex} = this.state;
     const currentMovie = movies[currentMovieIndex];
+    let moviesToDisplay = 3;
+    if (window.innerWidth <= 576) {
+      moviesToDisplay = 1
+    }
     console.log(movies);
     return (
-      <div className="carousel-background">
-        <div className="container">
+
+      <div className="container-fluid" >
+        <div className="carousel-background">
           {currentMovie ? (
-            <div className="carousel-inner d-flex  justify-content-center">
-              <button
+            <div className="carousel-inner d-flex justify-content-center">
+             <button
                 className={`my-auto carousel-control-prev carousel-control-prev-icon ${currentMovieIndex === 0 ? "disabled" : ""}`}
                 onClick={this.handlePreviousMovie}>
               </button>
-                { movies.slice(currentMovieIndex, currentMovieIndex + 3).map((currentMovie) => {
-                return (
-                  <Link to={{
-                    pathname: "/MovieDetails",
-                    state: {
-                      movie: currentMovie,
-                    }
-                  }}>
-                    <div className="border border-success pr-5 ">
-                        <img className="rounded d-block" src={currentMovie.poster} alt="poster"/>
-                        <p>{currentMovie.imdbVotes} votes</p>
-                        <p>{currentMovie.title}</p>
-                    </div>
-                  </Link>
-                )
-              })}
-              <button
+              {
+                movies.sort(function (a, b) {
+                  return b.imdbVotes - a.imdbVotes
+                }).slice(currentMovieIndex, currentMovieIndex + moviesToDisplay).map((currentMovie) => {
+                  return (
+                    <Link
+                      className="text-decoration-none "
+                      to={{
+                        pathname: "/MovieDetails",
+                        state: {
+                          movie: currentMovie,
+                        }
+                      }}>
+                      <div className="pr-5 text-center">
+                        <img className="rounded d-block " src={currentMovie.poster} alt="poster"/>
+                        <p className="title text-secondary ">{currentMovie.title}</p>
+                        <p className="votes text-secondary ">{currentMovie.imdbVotes} votes</p>
+                      </div>
+                    </Link>
+                 )
+                })}
+             <button
                 className={`my-auto carousel-control-next carousel-control-next-icon ${currentMovieIndex === movies.length - 3 ? "disabled" : ""}`}
                 onClick={this.handleNextMovie}>
-              </button>
+             </button>
             </div>
           ) : (
             <p>Loading</p>
@@ -90,7 +100,7 @@ class Poster extends Component {
 export default Poster;
 
 class Movie {
-  constructor(poster, title, year, genre, runtime, language, country, type,imdbVotes) {
+  constructor(poster, title, year, genre, runtime, language, country, type, imdbVotes) {
     this.poster = poster;
     this.title = title;
     this.year = year;
