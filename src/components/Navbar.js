@@ -44,7 +44,7 @@ class Navbar extends Component {
       );
     }
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow p-3 ">
         <div className="container">
           <Link className="navbar-brand" to="/Home">
             <img src={Logo} alt="Movie Website" />
@@ -114,12 +114,10 @@ class Navbar extends Component {
                   <Link className="dropdown-item" to="/FANTASY">
                     FANTASY
                   </Link>
-                  <Link className="dropdown-item" to="/SUPERHERO">
-                    SUPERHERO
-                  </Link>
-                  <Link className="dropdown-item" to="/FAMILY">
-                    FAMILY
-                  </Link>
+
+                 <Link className="dropdown-item" to="/FAMILY">
+                 FAMILY
+              </Link>
                 </div>
               </li>
               <li className="nav-item ">

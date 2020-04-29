@@ -3,7 +3,7 @@
 }
 
 .carousel-inner img {
-    height: 400px;
+    height: 300px;
 }
 
 .carousel-control-prev-icon {
@@ -12,4 +12,7 @@
 
 .carousel-control-next-icon {
     border-style: none;
+}
+.title:hover, .votes:hover{
+    background-color: darkgrey;
 }

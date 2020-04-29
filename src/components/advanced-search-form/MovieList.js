@@ -1,82 +1,109 @@
 import React, { Component } from "react";
-
-
+import NoPoster from "../../images/NoPoster.png";
+import "./MovieList.css";
 
 class MovieList extends Component {
-    constructor() {
-        super();
-        this.state = {
-            results: [],
-            currentMovieIndex: 0
-        }
+  constructor() {
+    super();
+    this.state = {
+      results: [],
+      currentMovieIndex: 0
     }
 
+  }
 
-    componentDidMount() {
-        console.log(this.props);
-        let url = "https://movies-api-siit.herokuapp.com/movies?"
-        let minutesMin = this.props.location.state.minutesMin;
-        let country = this.props.location.state.country;
-        let language = this.props.location.state.language;
-
-        if (country) {
-            url = url + "Country=" + country
-        }
-        if (language) {
-            url = url + "&Language=" + language
-        }
-        // if (minutesMin) {
-        //     url = url + "Runtime=" + minutesMin
-        // }
-        console.log(url);
-
-
-        fetch(url)
-            .then(results => {
-                return results.json();
-            }).then(movie => {
-
-                this.setState({ results: movie.results })
-
-            })
-
-
+  componentDidMount() {
+    let url = "https://movies-app-siit.herokuapp.com/movies?";
+    let title = this.props.location.state.title;
+    let genre = this.props.location.state.genre;
+    let country = this.props.location.state.country;
+    let language = this.props.location.state.language;
+    if (title) {
+      url = `${url}&Title=${title}`
+    }
+    if (genre) {
+      url = `${url}&Genre=${genre}`
     }
 
-    render() {
-        const details = this.props;
-        console.log(details);
-        console.log(this.state.results)
+    if (country.length > 0) {
+      url = url + "Country=";
+      for (let i = 0; i < country.length; i++) {
 
-        return (
+        url = url + country[i] + ", ";
 
-            <div className="movie-list-container">
-                <h1>Here are your search results </h1>
-                {this.state.results.map((movie) => {
+      }
+      url = url.slice(0, -2);
+    }
 
-                    let moviePoster = "no poster found";
-                    if (movie.Poster && movie.Poster !== "N/A") {
-                        moviePoster = movie.Poster;
-                    }
+    if (language.length > 0) {
+      url = url + "&Language="
+      for (let i = 0; i < language.length; i++) {
 
-                    return (
-                        <div className="movie-info" key={movie._id}>
-                            <img src={moviePoster} alt="poster" />
-                            <p>{movie.Title}</p>
-                            <p>Genre: {movie.Genre}</p>
-                            <p>Year: {movie.Year}</p>
-                            <p>Country:{movie.Country}</p>
-                            <p>Runtime: {movie.Runtime}</p>
-                            <p>Language: {movie.Language}</p>
-                            <p>imdbRating: {movie.imdbRating}</p>
-                            <p>imdbVotes: {movie.imdbVotes}</p>
-                        </div>
-                    );
-                })}
+        url = url + language[i] + ", ";
+
+      }
+      url = url.slice(0, -2);
+    }
+    url = url + "&take=100"
+    console.log(url);
+
+
+    fetch(url).then(results => {
+      return results.json();
+    }).then(movie => {
+      this.setState({ results: movie.results })
+    })
+  }
+
+  render() {
+    let minutesMin = this.props.location.state.minutesMin;
+    let minutesMax = this.props.location.state.minutesMax;
+    let runtimeResults = [];
+
+    if (minutesMin || minutesMax) {
+      if (minutesMin > minutesMax) {
+        minutesMax = 240
+        console.log("positive")
+      }
+      for (let i = 0; i < this.state.results.length; i++) {
+        if (minutesMin <= parseInt(this.state.results[i].Runtime, 10) && parseInt(this.state.results[i].Runtime, 10) <= minutesMax) {
+          runtimeResults.push(this.state.results[i]);
+
+        }
+      }
+      this.state.results = runtimeResults;
+    }
+
+    return (
+      <div className="container movie-list-container ">
+        <h1>Here are your search results </h1>
+        {this.state.results.map((movie) => {
+
+          let moviePoster = NoPoster;
+          if (movie.Poster && movie.Poster !== "N/A") {
+            moviePoster = movie.Poster;
+          }
+
+          return (
+            <div className="movie-info row text-white" key={movie._id}>
+              <img className="col-md-7 p-0 m-4 rounded border border-white" src={moviePoster} alt="poster" />
+              <div className="col-md-5 m-4">
+                <h4 className="m-0 pb-3">{movie.Title}</h4>
+                <p className="m-0 pb-2"><strong>Genre:</strong> {movie.Genre}</p>
+                <p className="m-0 pb-2"><strong>Year: </strong>{movie.Year}</p>
+                <p className="m-0 pb-2"><strong>Country:</strong>{movie.Country}</p>
+                <p className="m-0 pb-2"><strong>Runtime: </strong>{movie.Runtime}</p>
+                <p className="m-0 pb-2"><strong>Language: </strong>{movie.Language}</p>
+                <p className="m-0 pb-2 text-muted">imdbRating: {movie.imdbRating} <i className="fas fa-star text-warning"></i></p>
+                <p className="m-0 pb-2 text-muted">imdbVotes: {movie.imdbVotes}</p>
+              </div>
             </div>
+          );
+        })}
+      </div>
 
-        );
-    }
+    );
+  }
 
 
 }

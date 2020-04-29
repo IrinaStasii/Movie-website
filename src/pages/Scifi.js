@@ -1,50 +1,19 @@
 import React, { Component } from "react";
-import NoPoster from '../images/NoPoster.png';
-
+import MovieInfo from "./MovieInfo";
 
 class Scifi extends Component {
+
   constructor() {
     super();
-    this.state = { results: [] };
-  }
-
-  componentDidMount() {
-    fetch(`https://movies-api-siit.herokuapp.com/movies?take=100&Genre=Sci-Fi`)
-      .then(Response => {
-        return Response.json();
-      })
-      .then(movies => {
-        this.setState({ results: movies.results});
-      });
+    this.state = {genre: "Sci-Fi"};
   }
 
   render() {
-
     return (
       
-        <div className="container">
-          <h1>SCI-FI Page </h1>
-          {this.state.results.map((movie) => {      
-            
-            let moviePoster = NoPoster;
-            if (movie.Poster && movie.Poster !== "N/A") {
-              moviePoster = movie.Poster;
-            }
-
-            return (
-              <div className="movie-info" key={movie._id}> 
-                <img src={moviePoster} alt="poster"/>
-                <p>{movie.Title}</p>
-                <p>Genre: {movie.Genre}</p>
-                <p>Year: {movie.Year}</p>
-                <p>Runtime: {movie.Runtime}</p>
-                <p>Language: {movie.Language}</p>
-                <p>imdbRating: {movie.imdbRating}</p>
-                <p>imdbVotes: {movie.imdbVotes}</p>    
-              </div>
-            );
-          })}
-        </div>
+        
+          <MovieInfo genre={this.state.genre}/>
+     
       
     );
   }

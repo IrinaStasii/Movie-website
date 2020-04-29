@@ -1,7 +1,6 @@
-import React, {Component, useReducer} from "react";
+import React, {Component, } from "react";
 import SinglePosterCarousel from "../components/Poster";
 import MultiPosterCarousel from "../components/main/rating-carousel/Carousel";
-import MovieDetails from "../components/MovieDetails";
 
 
 class Home extends Component {
@@ -13,11 +12,14 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <div className="container">
-          <h2> Welcome to HOME Page</h2>
+        <div className="container text-muted ">
+          <h2 >Best voted series</h2>
         </div>
         <SinglePosterCarousel handleClickPoster={this.triggerIsPosterClickedState}
                               parentCallback={this.currentMovieCallback}/>
+        <div className="container text-muted">
+          <h2>Most rated movies</h2>
+        </div>
         <MultiPosterCarousel/>
       </div>
     );

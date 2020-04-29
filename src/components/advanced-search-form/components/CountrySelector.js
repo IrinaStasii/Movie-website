@@ -10,12 +10,14 @@ export function CountrySelector(props) {
                 <h3>Country</h3>
             </div>
             <div className="inputs">
-                <select multiple name="countries" className="countries" size="7" >
+                <select name="countries" className="countries w-50" size="7" onChange={(event) =>
+                    props.onChange(event.currentTarget.value)}>
                     {countries.map((country, index) => (
-                        <option key={index} value={country} onClick={() => props.onClick(country)}>{country}</option>
+                        <option key={index} value={country} >
+                            {country}
+                        </option>
                     )
                     )}
-
                 </select>
             </div>
         </div>

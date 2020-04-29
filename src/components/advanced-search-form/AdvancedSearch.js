@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./AdvancedSearch.css";
-import { generateYears } from "./AdvancedSearchUtils";
+import { TitleSelector } from "./components/TitleSelector";
+import GenresSelector from "./components/GenresSelector";
 import { YearSelector } from "./components/YearSelector";
 import { RuntimeSelector } from "./components/RuntimeSelector";
 import { CountrySelector } from "./components/CountrySelector";
@@ -15,148 +16,117 @@ class Form extends Component {
     genre: null,
     minutesMin: null,
     minutesMax: null,
-    country: null,
-    language: null,
-
+    country: [],
+    language: [],
   };
 
+
+
   componentDidMount() {
-    console.log("search-form-mounteed");
+    console.log("search-form-mounted");
   }
+
+  handleClickTitle = (title) => {
+    this.setState({ title });
+    document.getElementById("runtime-min").disabled = false;
+    document.getElementById("runtime-max").disabled = false;
+
+  };
 
   handleClickYear = (year) => {
     this.setState({ year });
-
+    document.getElementById("runtime-min").disabled = false;
+    document.getElementById("runtime-max").disabled = false;
   };
-  handleClickRuntime = (minutesMin, minutesMax) => {
-    this.setState({ minutesMin });
-    this.setState({ minutesMax });
-  }
-  handleClickCountry = (country) => {
-    this.setState({ country })
-  }
-  handleClickLanguage = (language) => {
-    this.setState({ language })
-  }
 
+  handleClickGenre = (genre) => {
+    this.setState({ genre });
+    document.getElementById("runtime-min").disabled = false;
+    document.getElementById("runtime-max").disabled = false;
+  };
 
+  handleClickRuntime = (value, type) => {
+    console.log(value, type);
+    this.setState({ [type]: value });
+  };
+
+  handleClickCountry = (value) => {
+    this.setState(state => {
+      const country = state.country.concat(value);
+      return {
+        country,
+      }
+    });
+    document.getElementById("runtime-min").disabled = false;
+    document.getElementById("runtime-max").disabled = false;
+  };
+  handleClickLanguage = (value) => {
+    this.setState(state => {
+      const language = state.language.concat(value);
+      console.log(language)
+      return {
+        language,
+      }
+    });
+    document.getElementById("runtime-min").disabled = false;
+    document.getElementById("runtime-max").disabled = false;
+  };
+
+  handleSubmit = () => {
+    this.resetState();
+  }
+  resetState = () => {
+    this.setState({
+      title: null,
+      year: null,
+      genre: null,
+      minutesMin: null,
+      minutesMax: null,
+      country: null,
+      language: null,
+    })
+  }
   render() {
-    // console.log(this.state);
+
 
     return (
-      <form className="form-wraper">
-        <div className="main">
-          <p>This is the form for an advanced search</p>
-
-
-          <div className="clause">
-            <div className="label">
-              <h3>Title</h3>
-            </div>
-            <div className="inputs">
-              <input id="title" name="title" type="text" size="75"></input>
-              <br></br>
-              <em>e.g. The Godfather</em>
-            </div>
+      <form className="form-wrapper ">
+        {/*<div className="main ">*/}
+        {/*<p>This is the form for an advanced search</p>*/}
+        <TitleSelector onChange={this.handleClickTitle} />
+        <GenresSelector handleGenre={this.handleClickGenre.bind(this)} />
+        <div className="row mt-4 mb-4 ">
+          <div className="col-sm-6 col-lg-3 pb-3  ">
+            <YearSelector onClick={this.handleClickYear} />
           </div>
-
-          <YearSelector onClick={this.handleClickYear} />
-
-          <div className="clause">
-            <div className="label">
-              <h3>Genres</h3>
-            </div>
-            <div className="inputs">
-              <table>
-                <tbody>
-                  <tr>
-                    <td>
-                      <input id="action" type="checkbox"></input>
-                      <label>Action</label>
-                    </td>
-                    <td>
-                      <input id="adventure" type="checkbox"></input>
-                      <label>Adventure</label>
-                    </td>
-                    <td>
-                      <input id="animation" type="checkbox"></input>
-                      <label>Animation</label>
-                    </td>
-                    <td>
-                      <input id="comedy" type="checkbox"></input>
-                      <label>Comedy</label>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <input id="crime" type="checkbox"></input>
-                      <label>Crime</label>
-                    </td>
-                    <td>
-                      <input id="drama" type="checkbox"></input>
-                      <label>Drama</label>
-                    </td>
-                    <td>
-                      <input id="family" type="checkbox"></input>
-                      <label>Family</label>
-                    </td>
-                    <td>
-                      <input id="fantasy" type="checkbox"></input>
-                      <label>Fantasy</label>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <input id="horror" type="checkbox"></input>
-                      <label>Horror</label>
-                    </td>
-                    <td>
-                      <input id="mistery" type="checkbox"></input>
-                      <label>Mistery</label>
-                    </td>
-                    <td>
-                      <input id="romance" type="checkbox"></input>
-                      <label>Romance</label>
-                    </td>
-                    <td>
-                      <input id="sci-fi" type="checkbox"></input>
-                      <label>SCI-FI</label>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <input id="superhero" type="checkbox"></input>
-                      <label>Superhero</label>
-                    </td>
-                    <td>
-                      <input id="thriller" type="checkbox"></input>
-                      <label>Thriller</label>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+          <div className="col-sm-6 col-lg-3 pb-3 ">
+            <CountrySelector onClick={this.handleClickCountry} />
           </div>
-
-          <RuntimeSelector onClick={this.handleClickRuntime} />
-          <CountrySelector onClick={this.handleClickCountry} />
-          <LanguageSelector onClick={this.handleClickLanguage} />
-          <Link to={{
-            pathname: "/MovieList",
-            state: {
-              title: this.state.title,
-              year: this.state.year,
-              genre: this.state.genre,
-              minutesMin: this.state.minutesMin,
-              minutesMax: this.state.minutesMax,
-              country: this.state.country,
-              language: this.state.language
-            }
-          }}>
-            <SubmitButton />
-          </Link>
-
+          <div className="col-sm-6 col-lg-3 pb-3 ">
+            <LanguageSelector onChange={this.handleClickLanguage} />
+          </div>
+          <div className="col-sm-6 col-lg-3 pb-3 ">
+            <RuntimeSelector onChange={this.handleClickRuntime} />
+          </div>
         </div>
+
+
+        <Link to={{
+          pathname: "/MovieList",
+          state: {
+            title: this.state.title,
+            year: this.state.year,
+            genre: this.state.genre,
+            minutesMin: this.state.minutesMin,
+            minutesMax: this.state.minutesMax,
+            country: this.state.country,
+            language: this.state.language
+          }
+        }}>
+          <SubmitButton onClick={this.handleSubmit} />
+
+        </Link>
+        {/*</div>*/}
       </form>
     );
   }

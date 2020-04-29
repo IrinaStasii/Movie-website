@@ -1,16 +1,30 @@
-.clause{
-    /* border:1px solid black; */
-    margin:10px
-}
+.form-wrapper{
+    /*height: 100%;*/
+    /*flex:1;*/
+    /*background-color: white;*/
 
-.form-wraper h3{
-color:#A58500;
+    /*padding:20px;*/
 }
+/*.clause{*/
+/*    !* border:1px solid black; *!*/
+/*    !*margin:10px*!*/
+/*}*/
 
-.submit{
-    background: #f3ce00;
-}
+/*.form-wrapper h3{*/
+/*color:#A58500;*/
 
-input[type=number]{
-    width: 80px;
-} 
+/*}*/
+
+/*.submit{*/
+/*    background: #f3ce00;*/
+/*}*/
+
+/*input[type=number]{*/
+/*    width: 80px;*/
+/*}*/
+/*.box {*/
+/*    height: 100px;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    flex-wrap: wrap;*/
+/*}*/
