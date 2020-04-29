@@ -32,16 +32,19 @@ class RegisterForm extends Component {
       headers: myHeaders,
       body: raw,
     };
-
     fetch(url, requestOptions)
-      .then((response) => response.text())
-      .then(function (result) {
+      .then((response) => response.json())
+      .then((result) => {
         console.log(result);
-        let obj = JSON.parse(result);
-        console.log(obj.authenticated, obj.accessToken);
-        window.localStorage.setItem("access_token", obj.accessToken);
-        window.localStorage.setItem("username", username);
+
+        if (result.accessToken !== undefined) {
+          console.log(result.authenticated, result.accessToken);
+          window.localStorage.setItem("access_token", result.accessToken);
+          window.localStorage.setItem("username", username);
+          this.props.history.push("/");
+        }
       })
+
       .catch((error) => console.log("error", error));
     // window.location.reload();
   }
