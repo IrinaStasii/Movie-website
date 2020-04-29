@@ -9,6 +9,7 @@ export function RuntimeSelector(props) {
       </div>
       <div className="inputs">
         <select
+          disabled={true}
           name="runtime-min"
           id="runtime-min"
           className="minutes mr-2"
@@ -28,6 +29,7 @@ export function RuntimeSelector(props) {
         </select>
         to
         <select
+          disabled={true}
           id="runtime-max"
           name="runtime-max"
           className= "ml-2"

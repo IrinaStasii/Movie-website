@@ -7,7 +7,42 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import "./Navbar.css";
 
 class Navbar extends Component {
+  LogoutUser() {
+    window.localStorage.removeItem("access_token");
+    window.localStorage.removeItem("username");
+    // window.location.reload();
+  }
+
   render() {
+    let navbarUsername;
+    let buttonLoginLogout;
+    if (localStorage.getItem("access_token") != null) {
+      navbarUsername = localStorage.getItem("username");
+      buttonLoginLogout = (
+        <Link to="/Home">
+          {" "}
+          <button
+            onClick={() => this.LogoutUser()}
+            type="button"
+            className="btn btn-outline-light"
+          >
+            {" "}
+            Logout{" "}
+          </button>{" "}
+        </Link>
+      );
+    } else {
+      navbarUsername = "";
+      buttonLoginLogout = (
+        <Link to="/Login">
+          {" "}
+          <button type="button" className="btn btn-outline-light">
+            {" "}
+            Register/Log in{" "}
+          </button>{" "}
+        </Link>
+      );
+    }
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow p-3 ">
         <div className="container">
@@ -107,13 +142,12 @@ class Navbar extends Component {
                 </Link>
               </li>
             </ul>
-            <li className="nav-item ">
-              <Link to="/Register-Login">
-                <button type="button" className="btn btn-outline-light">
-                  Register/Log in
-                </button>
-              </Link>
-            </li>
+            <li className="nav-item ">{buttonLoginLogout}</li>
+            <span class="navbar-text-username">
+              <i class="fas fa-user"></i>
+              {navbarUsername}
+            </span>
+            {/* <li className="nav-item ">{navbarUsername}</li> */}
           </div>
         </div>
       </nav>

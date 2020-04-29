@@ -1,4 +1,14 @@
+.switch {
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+
 .loginform {
-  /* height: 636px; */
-  height: 590px;
+  width: 50%;
+}
+
+.navbar-text-username {
+  color: white;
+  padding-left: 20px;
 }

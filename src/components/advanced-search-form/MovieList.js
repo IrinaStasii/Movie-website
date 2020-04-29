@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import NoPoster from "../../images/NoPoster.png";
 import "./MovieList.css";
 
@@ -13,12 +13,9 @@ class MovieList extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props);
     let url = "https://movies-app-siit.herokuapp.com/movies?";
     let title = this.props.location.state.title;
     let genre = this.props.location.state.genre;
-    let minutesMin = this.props.location.state.minutesMin;
-    let minutesMax = this.props.location.state.minutesMax;
     let country = this.props.location.state.country;
     let language = this.props.location.state.language;
     if (title) {
@@ -47,33 +44,49 @@ class MovieList extends Component {
       }
       url = url.slice(0, -2);
     }
+    url = url + "&take=100"
     console.log(url);
 
 
     fetch(url).then(results => {
       return results.json();
     }).then(movie => {
-      this.setState({results: movie.results})
+      this.setState({ results: movie.results })
     })
   }
 
   render() {
-    const details = this.props;
-    console.log(details);
-    console.log(this.state.results);
+    let minutesMin = this.props.location.state.minutesMin;
+    let minutesMax = this.props.location.state.minutesMax;
+    let runtimeResults = [];
+
+    if (minutesMin || minutesMax) {
+      if (minutesMin > minutesMax) {
+        minutesMax = 240
+        console.log("positive")
+      }
+      for (let i = 0; i < this.state.results.length; i++) {
+        if (minutesMin <= parseInt(this.state.results[i].Runtime, 10) && parseInt(this.state.results[i].Runtime, 10) <= minutesMax) {
+          runtimeResults.push(this.state.results[i]);
+
+        }
+      }
+      this.state.results = runtimeResults;
+    }
+
     return (
       <div className="container movie-list-container ">
         <h1>Here are your search results </h1>
         {this.state.results.map((movie) => {
 
-          let moviePoster = "no poster found";
+          let moviePoster = NoPoster;
           if (movie.Poster && movie.Poster !== "N/A") {
             moviePoster = movie.Poster;
           }
 
           return (
             <div className="movie-info row text-white" key={movie._id}>
-              <img className="col-md-7 p-0 m-4 rounded border border-white" src={moviePoster} alt="poster"/>
+              <img className="col-md-7 p-0 m-4 rounded border border-white" src={moviePoster} alt="poster" />
               <div className="col-md-5 m-4">
                 <h4 className="m-0 pb-3">{movie.Title}</h4>
                 <p className="m-0 pb-2"><strong>Genre:</strong> {movie.Genre}</p>

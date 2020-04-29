@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import "../AdvancedSearch.css";
 
 class GenresSelector extends Component {
@@ -23,7 +23,7 @@ class GenresSelector extends Component {
     let genres = ["Action", "Adventure", "Animation", "Comedy", "Crime", "Drama",
       "Family", "Fantasy", "Horror", "Mistery", "Romance", "SCI-FI", "Superhero",
       "Thriller"];
-    const {checked} = this.state;
+    const { checked } = this.state;
     const checkedCount = Object.keys(checked).filter(key => checked[key]).length;
     // const disabled = checkedCount > 0;
 
@@ -40,8 +40,8 @@ class GenresSelector extends Component {
                 onChange={() => this.onSelectedChange(genre, index)}
                 type="checkbox"
                 checked={checked[index] || false}
-                // disabled={!checked[index] && disabled}
-                // style={!checked[index] && disabled ? {"opacity": "0.5"} : {"opacity": "1"}}
+              // disabled={!checked[index] && disabled}
+              // style={!checked[index] && disabled ? {"opacity": "0.5"} : {"opacity": "1"}}
               />
               <span>{genre}</span>
             </label>

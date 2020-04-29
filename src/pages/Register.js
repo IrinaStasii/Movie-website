@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import LoginForm from "../components/login/Login-form";
+import RegisterForm from "../components/login/Register-form";
 
 class Login extends Component {
   render() {
     return (
       <div>
         <div className="container">
-          <LoginForm history={this.props.history} />
-          <Link className="switch" to="/Register">
-            <h5> If you do not have an account, please register first!</h5>
+          <RegisterForm />
+          <Link className="switch" to="/Login">
+            <h5> If you do have an account, please login!</h5>
           </Link>
         </div>
       </div>
