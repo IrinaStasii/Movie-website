@@ -13,7 +13,7 @@ class Home extends Component {
     return (
       <div>
         <div className="container text-muted ">
-          <h2 >Best voted series</h2>
+          <h2>The most voted action movies</h2>
         </div>
         <SinglePosterCarousel handleClickPoster={this.triggerIsPosterClickedState}
                               parentCallback={this.currentMovieCallback}/>

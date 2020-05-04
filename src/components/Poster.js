@@ -6,10 +6,11 @@ class Poster extends Component {
   state = {
     movies: [],
     currentMovieIndex: 0,
+    moviesToDisplay: 3
   };
 
   fetchData() {
-    fetch('https://movies-app-siit.herokuapp.com/movies?take=20&Type=series')
+    fetch('https://movies-app-siit.herokuapp.com/movies?take=20&Genre=action')
       .then(response => response.json())
       .then(data => {
         console.log(data.results);
@@ -25,6 +26,13 @@ class Poster extends Component {
   componentDidMount() {
     console.log("mounted");
     this.fetchData();
+    window.addEventListener("resize", () => {
+      if (window.innerWidth <= 576) {
+        this.setState({moviesToDisplay: 1})
+      } else {
+        this.setState({moviesToDisplay: 3})
+      }
+    })
   };
 
 
@@ -45,20 +53,18 @@ class Poster extends Component {
   };
 
   render() {
-    const {movies, currentMovieIndex} = this.state;
+    const {movies, currentMovieIndex, moviesToDisplay} = this.state;
     const currentMovie = movies[currentMovieIndex];
-    let moviesToDisplay = 3;
-    if (window.innerWidth <= 576) {
-      moviesToDisplay = 1
-    }
+
+
     console.log(movies);
     return (
 
-      <div className="container-fluid" >
+      <div className="container-fluid">
         <div className="carousel-background">
           {currentMovie ? (
             <div className="carousel-inner d-flex justify-content-center">
-             <button
+              <button
                 className={`my-auto carousel-control-prev carousel-control-prev-icon ${currentMovieIndex === 0 ? "disabled" : ""}`}
                 onClick={this.handlePreviousMovie}>
               </button>
@@ -81,12 +87,12 @@ class Poster extends Component {
                         <p className="votes text-secondary ">{currentMovie.imdbVotes} votes</p>
                       </div>
                     </Link>
-                 )
+                  )
                 })}
-             <button
+              <button
                 className={`my-auto carousel-control-next carousel-control-next-icon ${currentMovieIndex === movies.length - 3 ? "disabled" : ""}`}
                 onClick={this.handleNextMovie}>
-             </button>
+              </button>
             </div>
           ) : (
             <p>Loading</p>

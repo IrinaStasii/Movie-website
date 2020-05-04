@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import {Route} from "react-router-dom";
 import Home from "../pages/Home";
 import Action from "../pages/Action";
 import Comedy from "../pages/Comedy";
@@ -19,30 +19,32 @@ import MovieList from "./advanced-search-form/MovieList";
 import MovieDetails from "./MovieDetails";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import EditForm from "./EditForm/EditForm";
 
 export function Body() {
   return (
     <div className="app-body">
-      <Route exact path="/" component={Home} />
-      <Route exact path="/Home" component={Home} />
-      <Route exact path="/ACTION" component={Action} />
-      <Route exact path="/COMEDY" component={Comedy} />
-      <Route exact path="/SCI-FI" component={Scifi} />
-      <Route exact path="/HORROR" component={Horror} />
-      <Route exact path="/ROMANCE" component={Romance} />
-      <Route exact path="/THRILLER" component={Thriller} />
-      <Route exact path="/DRAMA" component={Drama} />
-      <Route exact path="/MYSTERY" component={Mystery} />
-      <Route exact path="/CRIME" component={Crime} />
-      <Route exact path="/ANIMATION" component={Animation} />
-      <Route exact path="/ADVENTURE" component={Adventure} />
-      <Route exact path="/FANTASY" component={Fantasy} />
-      <Route exact path="/FAMILY" component={Family} />
-      <Route exact path="/Advanced Search" component={AdvancedSearch} />
-      <Route exact path="/MovieList" component={MovieList} />
-      <Route exact path="/MovieDetails" component={MovieDetails} />
-      <Route exact path="/Login" component={Login} />
-      <Route exact path="/Register" component={Register} />
+      <Route exact path="/" component={Home}/>
+      <Route exact path="/Home" component={Home}/>
+      <Route exact path="/ACTION" component={Action}/>
+      <Route exact path="/COMEDY" component={Comedy}/>
+      <Route exact path="/SCI-FI" component={Scifi}/>
+      <Route exact path="/HORROR" component={Horror}/>
+      <Route exact path="/ROMANCE" component={Romance}/>
+      <Route exact path="/THRILLER" component={Thriller}/>
+      <Route exact path="/DRAMA" component={Drama}/>
+      <Route exact path="/MYSTERY" component={Mystery}/>
+      <Route exact path="/CRIME" component={Crime}/>
+      <Route exact path="/ANIMATION" component={Animation}/>
+      <Route exact path="/ADVENTURE" component={Adventure}/>
+      <Route exact path="/FANTASY" component={Fantasy}/>
+      <Route exact path="/FAMILY" component={Family}/>
+      <Route exact path="/Advanced Search" component={AdvancedSearch}/>
+      <Route exact path="/MovieList" component={MovieList}/>
+      <Route exact path="/MovieDetails" component={MovieDetails}/>
+      <Route exact path="/Login" component={Login}/>
+      <Route exact path="/Register" component={Register}/>
+      <Route exact path="/EditForm" component={EditForm}/>
     </div>
   );
 }

@@ -1,23 +1,16 @@
 import React, {Component} from "react";
-import './MovieDetails.css'
-import {Link} from "react-router-dom";
+import './MovieDetails.css';
 
 class MovieDetails extends Component {
 
-  // componentDidMount() {
-  //   const {handle} = this.props.match.params;
-  //   const {fromNotifications} = this.props.location.state;
-  // }
-
   render() {
     let currentMovie = this.props.location.state.movie;
-   // let movies = this.props.location.state.movies;
-   // let currentMovieIndex = this.props.location.state.currentMovieIndex;
+
     return (
       <div className="container-fluid">
         <div className="row">
           <div className="col-lg-6 ">
-            <img className="rounded mx-auto d-block pt-4" src={currentMovie.poster} alt="Poster"/>
+            <img className="rounded mx-auto d-block pt-4 w-50" src={currentMovie.poster} alt="Poster"/>
           </div>
           <div className="col-lg-6 my-auto ">
             <div className="container">
@@ -57,22 +50,11 @@ class MovieDetails extends Component {
                 commodi consectetur consequatur, delectus ducimus ea incidunt modi officia sequi temporibus voluptates? Ad at dolorum
                 facere in nemo, obcaecati officia optio perferendis quidem quisquam quo quos, repellendus repudiandae similique sunt.
                 Ad aliquid asperiores atque deserunt doloribus dolorum error et fugiat incidunt iusto maxime molestiae molestias, nobis
-                non praesentium quidem rem similique totam! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis culpa eaque labore laboriosam magnam magni molestias neque quo repellendus! Minus.</p>
+                    non praesentium quidem rem similique totam!</p>
               </div>
             </div>
           </div>
-          {/*<div className="col-sm">*/}
-          {/*  <Link to={{*/}
-          {/*    pathname: "/",*/}
-          {/*  }}>*/}
-          {/*    /!*<button type="button" className="btn btn-secondary" onClick={this.props.handleClickBack}>Back</button>*!/*/}
-          {/*  </Link>*/}
-          {/*</div>*/}
         </div>
-
-           {/*<h5>Cast: </h5>*/}
-          {/*<p>Lorem ipsum, Dolor Sit Amet, Magnam, Possimus</p>*/}
-
         </div>
 
     );
