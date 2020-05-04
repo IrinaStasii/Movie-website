@@ -60,7 +60,7 @@ class EditForm extends Component {
         </div>
         <div className="form-group">
           <label>Year</label>
-          <input className="form-control" value={this.state.year} onChange={(e) => {
+          <input className="form-control" type="number" value={this.state.year} onChange={(e) => {
             this.setState({year: e.target.value})
           }}/>
         </div>
