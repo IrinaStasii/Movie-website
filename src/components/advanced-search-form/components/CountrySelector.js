@@ -11,7 +11,7 @@ export function CountrySelector(props) {
             </div>
             <div className="inputs">
                 <select name="countries" className="countries w-50" size="7" onChange={(event) =>
-                    props.onChange(event.currentTarget.value)}>
+                    props.onClick(event.currentTarget.value)}>
                     {countries.map((country, index) => (
                         <option key={index} value={country} >
                             {country}
