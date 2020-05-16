@@ -1,4 +1,5 @@
 import React from "react";
+import Cookies from "js-cookie";
 
 export function CountrySelector(props) {
 
@@ -10,7 +11,7 @@ export function CountrySelector(props) {
                 <h3>Country</h3>
             </div>
             <div className="inputs">
-                <select name="countries" className="countries w-50" size="7" onChange={(event) =>
+                <select name="countries" className="countries w-50" size="7" value={Cookies.get("movieCountry") || "" } onChange={(event) =>
                     props.onClick(event.currentTarget.value)}>
                     {countries.map((country, index) => (
                         <option key={index} value={country} >

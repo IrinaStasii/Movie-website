@@ -86,7 +86,6 @@ class MovieInfo extends Component {
             <div className="container-fluid" key={movie._id}>
               <div className="row">
                 <div className="col-md-3 poster-container">
-                <div className="col-md-3" className="poster-container">
                   <img src={moviePoster} className="card-image" alt="poster" />
                 </div>
                 <div className="col-md-3" id="card-body-movie-list">
@@ -142,7 +141,6 @@ class MovieInfo extends Component {
                       </button>
                     </Link>
                     <WarningModal
-                      // history={this.props.history}
                       key={movie._id}
                       movieId={movie._id}
                       toggleOpenWarningModal={this.toggleOpenWarningModal}
@@ -154,7 +152,6 @@ class MovieInfo extends Component {
                 )}
                 </div>
                 </div>
-            </div>
           );
         })}
         <PaginationPage

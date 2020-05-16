@@ -146,7 +146,7 @@ class Navbar extends Component {
                 </div>
               </li>
               <li className="nav-item ">
-                <Link className="nav-link" to="/Advanced Search">
+                <Link className="nav-link" to="/AdvancedSearch">
                   {" "}
                   Advanced Search{" "}
                   <span>

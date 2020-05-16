@@ -44,7 +44,7 @@ export function Body() {
       <Route exact path="/ADVENTURE" component={Adventure} />
       <Route exact path="/FANTASY" component={Fantasy} />
       <Route exact path="/FAMILY" component={Family} />
-      <Route exact path="/Advanced Search" component={AdvancedSearch} />
+      <Route exact path="/AdvancedSearch" component={AdvancedSearch} />
       <Route exact path="/MovieList" component={MovieList} />
       <Route exact path="/MovieDetails" component={MovieDetails} />
       <Route exact path="/Login" component={Login} />

@@ -3,7 +3,7 @@ import React, {Component} from "react";
 class EditForm extends Component {
   static contextTypes = {
     router: () => true,
-  }
+  };
   state = {
     id: "",
     title: "",
@@ -20,6 +20,7 @@ class EditForm extends Component {
     this.setState({genre: this.props.location.state.movie.Genre});
     this.setState({language: this.props.location.state.movie.Language});
     this.setState({runtime: this.props.location.state.movie.Runtime});
+    this.setState({token: "access_token" in localStorage ? localStorage.getItem("access_token") : ""})
   };
 
   componentDidUpdate(prevProps, prevState, snapshot) {
@@ -32,7 +33,7 @@ class EditForm extends Component {
       method: 'PUT',
       headers: {
         "Content-type": "application/json; charset=UTF-8",
-        "X-Auth-Token": "rie6XgQ9r2ZiHzkBBLcAe2qu4zZBXfFa"
+        "X-Auth-Token": that.state.token
       },
       body: JSON.stringify({
         "Title": that.state.title,
@@ -44,12 +45,13 @@ class EditForm extends Component {
     })
       .then(response => response.json())
       .then(json => {
+        // if error add a popup nice message
         console.log(json);
         that.props.history.goBack();
       })
   };
 
-  render() {
+  render(){
     return (
       <form className="container bg-light p-5 h-auto">
         <div className="form-group">

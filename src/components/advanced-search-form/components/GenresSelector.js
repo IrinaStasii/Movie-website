@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../AdvancedSearch.css";
+import Cookies from "js-cookie";
 
 class GenresSelector extends Component {
   state = {
@@ -37,6 +38,7 @@ class GenresSelector extends Component {
             <label className="col-md-3" key={index}>
               <input
                 key={index}
+                value={Cookies.get("movieGenre") || ""}
                 onChange={() => this.onSelectedChange(genre, index)}
                 type="checkbox"
                 checked={checked[index] || false}
