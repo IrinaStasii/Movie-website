@@ -23,7 +23,7 @@ class MovieInfo extends Component {
     this.fetchMovies(this.state.currentPage);
   }
 
-  componentDidUpdate(x) {
+  componentDidUpdate() {
     if (this.props.title && this.props.title !== this.state.currentTitle) {
       this.fetchMovies(this.state.currentPage);
     }
@@ -88,8 +88,8 @@ class MovieInfo extends Component {
                 <div className="col-md-3 poster-container">
                   <img src={moviePoster} className="card-image" alt="poster" />
                 </div>
-                <div className="col-md-3" id="card-body-movie-list">
-                  <div className="movie-details">
+                {/* <div className="col-md-3" id="card-body-movie-list"> */}
+                  <div className="col-md-3 movie-details">
                     <h5 className="card-title">{movie.Title}</h5>
                     <p className="card-text">Genre: {movie.Genre}</p>
                     <p id="rating" className="card-text">
@@ -124,7 +124,6 @@ class MovieInfo extends Component {
                 {localStorage.getItem("access_token") ? (
                   <div className="col-md-2" id="buttons">
                     <Link
-                      //className="text-decoration-none "
                       to={{
                         pathname: "/EditForm",
                         state: {
@@ -150,7 +149,6 @@ class MovieInfo extends Component {
                 ) : (
                   ""
                 )}
-                </div>
                 </div>
           );
         })}

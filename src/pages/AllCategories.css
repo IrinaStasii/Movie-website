@@ -1,12 +1,12 @@
 #card-body-movie-list {
   color: white;
   padding: 20px 5px 10px 0px;
+  width: 100px;
 }
 
 .movie-container {
   background-color: #343a40;
   flex: 1;
-  overflow: auto;
 }
 
 .card-image {
@@ -14,9 +14,9 @@
   border: 1px solid white;
 }
 
-.poster-container img{
-max-height: 400px;
-max-width: 280px;
+.poster-container img {
+  max-height: 350px;
+  max-width: 230px;
 }
 
 .row {
@@ -25,12 +25,16 @@ max-width: 280px;
 .card-title-movie-list {
   margin-left: 20px;
 }
-.movie-details {
+
+.col-md-3.movie-details {
+  padding: 15px 0px 0px 15px;
   margin-left: 10px;
 }
 
 #buttons {
-  padding: 20px 10px 10px 10px;
+  padding: 20px 10px 10px 20px;
+  width: 200px;
+  display: flex;
 }
 
 .container-fluid {
@@ -39,7 +43,8 @@ max-width: 280px;
 
 #movie-info {
   color: white;
-  padding: 23px 10px 10px 10px;
+  padding: 20px 10px 10px 30px;
+  width: 400px;
 }
 
 .rating-img {
@@ -48,15 +53,39 @@ max-width: 280px;
   padding-left: 5px;
   padding-bottom: 5px;
 }
+
 @media (max-width: 1270px) {
-  .card-image img{
+  .card-image img {
     max-height: 300px;
     max-width: 180px;
   }
   .card-text {
     font-size: smaller;
   }
- 
+  .movie-details {
+    width: auto;
+  }
+  #movie-info {
+    width: 100%;
+    margin-left: 0px;
+  }
+}
+
+@media (max-width: 1270px) {
+  #movie-info,
+  .col-md-3.movie-details {
+    padding-left: 10px;
+  }
+  .col-md-3.movie-details {
+    margin-left: 0px;
+  }
+  #buttons {
+    padding-left: 10px;
+  }
+  .page-link {
+    padding: 0.1rem 0.5rem !important;
+    padding-left: 5px !important;
+  }
 }
 
 .pagination {
@@ -66,9 +95,9 @@ max-width: 280px;
   justify-content: center;
 }
 
-.pagination ul{
-    text-decoration: none;
-    text-decoration-color: black;
+.pagination ul {
+  text-decoration: none;
+  text-decoration-color: black;
 }
 
 .page-item.active .page-link {
@@ -79,24 +108,18 @@ max-width: 280px;
   margin: 0;
 }
 
-.page-link{
-    color:black !important;
-    background-color: white !important;
+.page-link {
+  color: black !important;
+  background-color: white !important;
 }
-.page-item.active .page-link{
-    background-color:rgb(242, 101, 34) !important;
-    border-color: grey !important;
-    color: black !important;
-}
-
-@media (min-width: 768px){
-.col-md-3 {
-    display: flex !important;
-    max-width:100% !important;
-}
+.page-item.active .page-link {
+  background-color: rgb(242, 101, 34) !important;
+  border-color: black !important;
+  color: white !important;
 }
 
-.searchByTitleNavbar{
+
+.searchByTitleNavbar {
   font-size: x-large;
   color: white;
   padding: 20px 0px 0px 25px;

@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import MovieInfo from "./MovieInfo";
-import "./AllCategories.css";
+import "./AllCategories.css"
 
 class SearchByTitleNavbar extends Component {
   constructor() {
     super();
   }
 
+  
   render() {
+    
     let title = this.props.location.title;
 
     return (
