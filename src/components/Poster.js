@@ -6,7 +6,8 @@ class Poster extends Component {
   state = {
     movies: [],
     currentMovieIndex: 0,
-    moviesToDisplay: 3
+    moviesToDisplay: 3,
+
   };
 
   fetchData() {
@@ -65,8 +66,8 @@ class Poster extends Component {
           {currentMovie ? (
             <div className="carousel-inner d-flex justify-content-center">
               <button
-                className={`my-auto carousel-control-prev carousel-control-prev-icon ${currentMovieIndex === 0 ? "disabled" : ""}`}
-                onClick={this.handlePreviousMovie}>
+                className={currentMovieIndex === 0 ? "disabled": "m-auto carousel-control-prev carousel-control-prev-icon"}
+                  onClick={this.handlePreviousMovie}>
               </button>
               {
                 movies.sort(function (a, b) {
@@ -90,7 +91,7 @@ class Poster extends Component {
                   )
                 })}
               <button
-                className={`my-auto carousel-control-next carousel-control-next-icon ${currentMovieIndex === movies.length - 3 ? "disabled" : ""}`}
+                className={currentMovieIndex === movies.length - 3 ? "disabled" : "my-auto carousel-control-next carousel-control-next-icon"}
                 onClick={this.handleNextMovie}>
               </button>
             </div>
