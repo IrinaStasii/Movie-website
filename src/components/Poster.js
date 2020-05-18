@@ -83,7 +83,7 @@ class Poster extends Component {
                         }
                       }}>
                       <div className="pr-5 text-center">
-                        <img className="rounded d-block " src={currentMovie.Poster} alt="poster"/>
+                        <img className="rounded" src={currentMovie.Poster} alt="poster"/>
                         <p className="title text-secondary ">{currentMovie.Title}</p>
                         <p className="votes text-secondary ">{currentMovie.imdbVotes} votes</p>
                       </div>

@@ -75,7 +75,6 @@ class MovieDetails extends Component {
             {localStorage.getItem("access_token") ? (
             <div className="row justify-content-center">
             <Link
-              className="m-2"
               to={{
                 pathname: "/EditForm",
                 state: {
