@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import './Carousel.css';
 import NoPoster from "../../../images/NoPoster.png";
-import { Link } from "react-router-dom";
 
 
 const url = "https://movies-app-siit.herokuapp.com/movies?take=150"
@@ -57,13 +56,7 @@ class Carousel extends Component {
                             moviePoster = res.Poster;
                         }
                         return (
-                            // <Link
-                            //     to={{
-                            //         pathname: "/MovieDetails",
-                            //         state: {
-                            //             movie: res,
-                            //         }
-                            //     }}>
+
                             <div className="element" >
                                 <img key={currentMovieIndex} src={moviePoster} className="card-img-top" alt="logo" />
                                 <div className="element-body">
@@ -77,7 +70,6 @@ class Carousel extends Component {
 
                                 </div>
                             </div>
-                            // </Link>
                         )
                     })}
                     <div className="arrow-right" role="presentation">

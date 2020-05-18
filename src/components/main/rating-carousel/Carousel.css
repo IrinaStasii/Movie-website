@@ -1,4 +1,4 @@
- body{
+body{
     width: 100%;
     overflow: hidden;
 }
@@ -22,12 +22,12 @@
     align-items: center;
 }
 .arrow-right{
-    display: block;
+    display: inline-block;
     align-items: center;
-    position: absolute;
+    position: relative;
     z-index: 10;
-    right: 0;
-    top: 130px;
+    right: 43px;
+    top: 55px;
 }
 
 .disabled{
@@ -141,12 +141,12 @@ h5:hover{
     } 
 
     .arrow-right{
-        display: block;
+        display: inline-block;
         align-items: center;
-        position: absolute;
+        position: relative;
         z-index: 10;
-        right: 0;
-        top: 130px;
+        right: 45px;
+        top: -36px;
     }
     .element-title h5{
         font-size: smaller;
@@ -166,6 +166,14 @@ h5:hover{
         width:150px;
     }    
 
+    .arrow-right{
+        display: inline-block;
+        align-items: center;
+        position: relative;
+        z-index: 10;
+        right: 40px;
+        top: 56px;
+    }
     
 }
 
@@ -178,8 +186,8 @@ h5:hover{
     }
     .caroussel{
         display: block;
-        overflow-y: hidden;
         overflow-x: hidden;
+        overflow-y: hidden;
         overflow-x:scroll;
         white-space: nowrap;
         position: relative;
@@ -198,6 +206,14 @@ h5:hover{
        
     }
     
+    .arrow-right{
+        display: inline-block;
+        align-items: center;
+        position: relative;
+        z-index: 10;
+        right: 40px;
+        top: 55px;
+    }
     
 }
 
