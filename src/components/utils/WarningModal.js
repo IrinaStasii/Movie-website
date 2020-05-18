@@ -39,11 +39,11 @@ class WarningModal extends Component {
     const { movieId, key } = this.props;
 
     return (
-      <div className="modalWrapper">
+      <div className="modalWrapper"  style={{paddingLeft: "5px" }}>
         <button
           id="DELETE"
           type="button"
-          className="btn btn-outline-light m-2"
+          className="btn btn-outline-light" 
           onClick={this.toggleOpenWarningModal}
         >
           DELETE

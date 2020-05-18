@@ -85,29 +85,27 @@ class MovieInfo extends Component {
           return (
             <div className="container-fluid" key={movie._id}>
               <div className="row">
-                <div className="col-md-3 poster-container">
+                <div className="col-md-3" className="poster-container">
                   <img src={moviePoster} className="card-image" alt="poster" />
                 </div>
-                {/* <div className="col-md-3" id="card-body-movie-list"> */}
-                  <div className="col-md-3 movie-details">
-                    <h5 className="card-title">{movie.Title}</h5>
-                    <p className="card-text">Genre: {movie.Genre}</p>
-                    <p id="rating" className="card-text">
-                      imdbRating: {movie.imdbRating}
-                      <img src={Star} className="rating-img" alt="rating" />
-                    </p>
-                    <p className="card-text">Runtime: {movie.Runtime}</p>
-                    <p className="card-text">Language: {movie.Language}</p>
-                    <p className="card-text">
-                      {" "}
-                      <small className="text-muted">
-                        imdbVotes: {movie.imdbVotes}{" "}
-                      </small>
-                    </p>
-                    <p className="card-text">
-                      <small className="text-muted">Year: {movie.Year}</small>
-                    </p>
-                  </div>
+                <div className="col-md-3 movie-details">
+                  <h5 className="card-title">{movie.Title}</h5>
+                  <p className="card-text">Genre: {movie.Genre}</p>
+                  <p id="rating" className="card-text">
+                    imdbRating: {movie.imdbRating}
+                    <img src={Star} className="rating-img" alt="rating" />
+                  </p>
+                  <p className="card-text">Runtime: {movie.Runtime}</p>
+                  <p className="card-text">Language: {movie.Language}</p>
+                  <p className="card-text">
+                    {" "}
+                    <small className="text-muted">
+                      imdbVotes: {movie.imdbVotes}{" "}
+                    </small>
+                  </p>
+                  <p className="card-text">
+                    <small className="text-muted">Year: {movie.Year}</small>
+                  </p>
                 </div>
                 <div className="col-md-4" id="movie-info">
                   <h6 className="card-title"> MOVIE INFO </h6>
@@ -149,7 +147,8 @@ class MovieInfo extends Component {
                 ) : (
                   ""
                 )}
-                </div>
+              </div>
+            </div>
           );
         })}
         <PaginationPage

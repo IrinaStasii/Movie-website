@@ -1,74 +1,203 @@
-body{
+ body{
     width: 100%;
+    overflow: hidden;
 }
+
+
 .arrow{
     color:#fff;
-}
+} 
 .arrow:hover{
     color:gold;
     cursor: pointer;
-}
+} 
 
 .arrow-wrap{
     border: 1px solid white;
-    height:30px;
-    width:25px;
-}
-.arrows{
+    height:60px;
+    width:40px;
+    border-radius: 5px;
     display: flex;
+    justify-content: center;
     align-items: center;
 }
+.arrow-right{
+    display: block;
+    align-items: center;
+    position: absolute;
+    z-index: 10;
+    right: 0;
+    top: 130px;
+}
+
 .disabled{
     display: none;
 }
-
-.card img{
-    height:200px;
+.arrow-left {
+    display: block;
+    align-items: center;
+    position: absolute;
+    z-index: 10;
+    top: 130px;
+} 
+.caroussel-container{
+    display: flex;
+    position: relative;
+    justify-content: center;
+}
+.caroussel{
+    overflow-y: hidden;
+    overflow-x: hidden;
+    overflow-x:scroll;
+    white-space: nowrap;
+    position: relative;
+    
 }
 
-.card-text{
-    font-size: medium;
+.element{
+    background-color: #343a40;
+    padding:15px;
+    display:inline-table;
+    width:189px;
+    
+} 
+
+
+.element img{
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    height:200px;
+    
+}
+.element-body{
+    height:150px;
+    position: relative;
+    background-color:rgb(27, 27, 27);
+}
+.rating{
+    display: flex;
+    padding-top: 8px;
+    align-items: baseline;
+}
+.star{
+    color: gold;
+    margin-left:5px;
+
+}
+.rating p{
+    font-size: large;
     color: white;
     margin-left: 5px;
+    padding-top: 5px;
+}
 
-}
-.card-body{
-    height:150px;
-}
-.card-body h5{
+.element-title{
+    width: 150px;
     color:white;
+    padding-right: 5px;
 }
-
+.element-title h5{
+    font-size: large;
+    white-space: normal;
+    margin-left: 9px;
+   
+}
 h5:hover{
     color:gold;
     cursor: pointer;
+} 
 
-}
 
-
-.card-deck{
+@media only screen and (max-width: 1140px) {
+    .caroussel-container{
+        display: flex;
+        position: relative;
+        justify-content: center;
+    }
+    .caroussel{
+        display: inline-block;
+        overflow-y: hidden;
+        overflow-x: hidden;
+        overflow-x:scroll;
+        position: relative;
+        
+    }
+    
+    .element{
     background-color: #343a40;
-    padding: 50px;
+    padding:15px;
+    display:inline-grid;
+    width:189px;
+    
+} 
+
+    .arrow-left {
+        display: block;
+        align-items: center;
+        position: absolute;
+        z-index: 10;
+        top: 130px;
+    } 
+
+    .arrow-right{
+        display: block;
+        align-items: center;
+        position: absolute;
+        z-index: 10;
+        right: 0;
+        top: 130px;
+    }
+    .element-title h5{
+        font-size: smaller;
+        
+       
+    }
 }
-.card-body{
-   position: relative;
-   background-color:rgb(27, 27, 27);
+
+@media only screen and (max-width: 1068px) {
+    
+    
+    .element{
+        background-color: #343a40;
+        padding:10px;
+        flex:1;
+        display:inline-table;
+        width:150px;
+    }    
+
+    
 }
 
-.card-img-top{
-    width:200px;
-    height:300px;
+@media only screen and (max-width: 800px) {
+    
+    .caroussel-container{
+        display: flex;
+        position: relative;
+        justify-content: center;
+    }
+    .caroussel{
+        display: block;
+        overflow-y: hidden;
+        overflow-x: hidden;
+        overflow-x:scroll;
+        white-space: nowrap;
+        position: relative;
+    }
+    .element{
+        background-color: #343a40;
+        padding:10px;
+        flex:1;
+        display:inline-table;
+        width:220px;
+    }  
+
+    .element-title h5{
+        font-size: large;
+        
+       
+    }
+    
+    
 }
-
-.rating{
-    display: flex;
-    align-items: center;
-
-}
-
-.star{
-    color: gold;
-
-}
-
 

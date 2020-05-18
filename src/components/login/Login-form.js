@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+
 import { Form } from "react-bootstrap";
 
 import "./Login.css";
@@ -45,7 +45,6 @@ class LoginForm extends Component {
         }
       })
       .catch((error) => console.log("error", error));
-    // window.location.reload();
   }
 
   render() {
@@ -54,11 +53,11 @@ class LoginForm extends Component {
         <div className="container col">
           <Form>
             <Form.Group controlId="formGroupEmail">
-              <Form.Label>Email address</Form.Label>
+              <Form.Label>Username</Form.Label>
               <Form.Control
                 ref={this.usernameField}
                 type="email"
-                placeholder="Enter email"
+                placeholder="Enter username"
               />
             </Form.Group>
             <Form.Group controlId="formGroupPassword">
@@ -66,19 +65,18 @@ class LoginForm extends Component {
               <Form.Control
                 ref={this.passwordField}
                 type="password"
-                placeholder="Password"
+                placeholder="Enter Password"
               />
             </Form.Group>
           </Form>
-          {/* <Link className="register" to="/Home"> */}
+
           <button
             type="button"
-            className="btn btn-dark"
+            className="btn btn-light"
             onClick={() => this.LoginUser()}
           >
             Login
           </button>
-          {/* </Link> */}
         </div>
         <div></div>
       </div>

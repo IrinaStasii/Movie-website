@@ -11,19 +11,34 @@ class Footer extends Component {
           <div className="row text-center">
             <MDBContainer>
               <MDBBtn size="lg" tag="a" floating social="fb">
-                <MDBIcon fab icon="facebook-f" />
+                <a href="https://www.facebook.com/">
+                  {" "}
+                  <MDBIcon fab icon="facebook-f" />
+                </a>
               </MDBBtn>
               <MDBBtn size="lg" tag="a" floating social="tw">
-                <MDBIcon fab icon="twitter" />
+                <a href="https://www.twitter.com/">
+                  {" "}
+                  <MDBIcon fab icon="twitter" />
+                </a>
               </MDBBtn>
               <MDBBtn size="lg" tag="a" floating social="ins">
-                <MDBIcon fab icon="instagram" />
+                <a href="https://www.instagram.com/">
+                  {" "}
+                  <MDBIcon fab icon="instagram" />
+                </a>
               </MDBBtn>
               <MDBBtn size="lg" tag="a" floating social="pin">
-                <MDBIcon fab icon="pinterest" />
+                <a href="https://pinterest.com/">
+                  {" "}
+                  <MDBIcon fab icon="pinterest" />
+                </a>
               </MDBBtn>
               <MDBBtn size="lg" tag="a" floating social="yt">
-                <MDBIcon fab icon="youtube" />
+                <a href="https://www.youtube.com/">
+                  {" "}
+                  <MDBIcon fab icon="youtube" />
+                </a>
               </MDBBtn>
             </MDBContainer>
           </div>

@@ -1,11 +1,12 @@
 .switch {
   text-align: center;
   text-decoration: none;
-  color: black;
+  color: rgb(243, 88, 17);
 }
 
 .loginform {
   width: 50%;
+  color: rgb(243, 88, 17);
 }
 
 .navbar-text-username {
